@@ -13,8 +13,8 @@ myself/
 
 private/
 
-private_binance/
+binance/private/
 
-private_huobi/
+huobi/private/
 
-private_okex/
+okex/private/
