@@ -169,6 +169,11 @@ class Client(object):
             del(kwargs['data'])
 
         response = getattr(self.session, method)(uri, **kwargs)
+        print('session:', self.session)
+        print('session.headers:', self.session.headers)
+        print('uri:', uri)
+        print('kwargs:', kwargs)
+        print('response:', response.json())
         return self._handle_response(response)
 
     def _request_api(self, method, path, signed=False, version=PUBLIC_API_VERSION, **kwargs):
