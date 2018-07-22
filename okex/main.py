@@ -14,7 +14,7 @@ ticker = client.ticker(symbol)
 
 flag = 0
 count = 0
-while(flag<10):
+while(flag<50000):
     flag= flag+1
     time1 = time.time()*1000
     ticker = client.ticker('btc_usdt')
@@ -23,4 +23,4 @@ while(flag<10):
     count = count + time2-time1
     #print(time2-time1, ticker)
 
-print('averge ticker time:', count/10000)
+print('averge ticker time:', count/50000)

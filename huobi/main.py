@@ -4,7 +4,7 @@ import time
 flag = 0
 count = 0
 
-while(flag<10):
+while(flag<50000):
     flag = flag +1
     time1 = time.time()*1000
     aa = get_ticker('btcusdt')
@@ -13,6 +13,6 @@ while(flag<10):
     print(time2-time1)
     #print(time2-time1, aa)
 
-print('averge ticker time:', count/10000)
+print('averge ticker time:', count/50000)
 
 
