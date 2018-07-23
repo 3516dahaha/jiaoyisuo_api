@@ -112,7 +112,9 @@ class Client(object):
 
     def _generate_signature(self, data):
 
+        print('data is:', data)
         ordered_data = self._order_params(data)
+        print('ordered_data is:', ordered_data)
         query_string = '&'.join(["{}={}".format(d[0], d[1]) for d in ordered_data])
         m = hmac.new(self.API_SECRET.encode('utf-8'), query_string.encode('utf-8'), hashlib.sha256)
         return m.hexdigest()
@@ -168,6 +170,7 @@ class Client(object):
             kwargs['params'] = kwargs['data']
             del(kwargs['data'])
 
+        print('getattr is', getattr(self.session, method))
         response = getattr(self.session, method)(uri, **kwargs)
         print('session:', self.session)
         print('session.headers:', self.session.headers)
