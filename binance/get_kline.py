@@ -5,6 +5,7 @@ import hashlib
 import time
 import json, requests
 
+jiaoyidui = 'ETHUSDT'
 
 #1503014400000  20170818 ms
 binance_start = 1503014400000
@@ -35,15 +36,15 @@ client = Client(para[0],para[1])
 for i, val in enumerate(day_date_ts):
     if(i==len(day_date_ts)-1):
         break
-    klines = client.get_historical_klines("BTCUSDT", Client.KLINE_INTERVAL_1MINUTE, val[1], val[1]+1000*60*60*24)
-    file_out = 'private/klines/{0}'.format(val[0])
+    klines = client.get_historical_klines(jiaoyidui, Client.KLINE_INTERVAL_1MINUTE, val[1], val[1]+1000*60*60*24)
+    file_out = 'private/klines/{0}/{1}'.format(jiaoyidui, val[0])
     with open(file_out, 'w') as f:
         for kl in klines:
-            ts_close = kl[6]
-            price_close = kl[4]
-            f.write(str(ts_close))
+            ts_open = kl[0]
+            price_open = kl[1]
+            f.write(str(ts_open))
             f.write('\t')
-            f.write(price_close)
+            f.write(price_open)
             f.write('\n')
             
 
