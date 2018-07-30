@@ -5,7 +5,7 @@ import hashlib
 import time
 import json, requests
 
-jiaoyidui = 'ETHUSDT'
+jiaoyidui = 'BTCUSDT'
 
 #1503014400000  20170818 ms
 binance_start = 1503014400000
@@ -42,9 +42,18 @@ for i, val in enumerate(day_date_ts):
         for kl in klines:
             ts_open = kl[0]
             price_open = kl[1]
+            price_high = kl[2]
+            price_low = kl[3]
+            price_close = kl[4]
             f.write(str(ts_open))
             f.write('\t')
             f.write(price_open)
+            f.write('\t')
+            f.write(price_high)
+            f.write('\t')
+            f.write(price_low)
+            f.write('\t')
+            f.write(price_close)
             f.write('\n')
             
 
